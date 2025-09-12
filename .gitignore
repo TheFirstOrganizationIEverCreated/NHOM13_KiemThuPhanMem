@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/src/test/
+**/target/
+**/MY_DRAFTS/
+**/*.env
+**/*.ini
+**/.vs
+**/*.txt.bak
+**/*.lnk
