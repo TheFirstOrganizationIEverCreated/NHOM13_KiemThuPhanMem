@@ -358,3 +358,6 @@ dotnet_diagnostic.CA1310.severity = silent
 
 # IDE0045: Convert to conditional expression
 dotnet_diagnostic.IDE0045.severity = silent
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = silent
