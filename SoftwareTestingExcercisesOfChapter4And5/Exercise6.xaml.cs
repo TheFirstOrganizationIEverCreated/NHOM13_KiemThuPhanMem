@@ -5,8 +5,6 @@ using System.Windows;
 
 public partial class Exercise6 : Window, INotifyPropertyChanged
 {
-    public string? NString { private get; set; }
-
     private string? _notification;
     public string? Notification
     {
@@ -29,14 +27,44 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         }
     }
 
-    private Visibility _formConfirmNAmountOfIntegersVisibility;
-    public Visibility FormConfirmNAmountOfIntegersVisibility
+    private int _n;
+
+    public string? NString { private get; set; }
+
+    private Visibility _formConfirmUVisibility;
+    public Visibility FormConfirmUVisibility
     {
-        get => _formConfirmNAmountOfIntegersVisibility;
+        get => _formConfirmUVisibility;
         private set
         {
-            _formConfirmNAmountOfIntegersVisibility = value;
-            OnPropertyChanged(nameof(FormConfirmNAmountOfIntegersVisibility));
+            _formConfirmUVisibility = value;
+            OnPropertyChanged(nameof(FormConfirmUVisibility));
+        }
+    }
+
+    public string? AString { private get; set; }
+
+    private readonly List<int> _u;
+
+    private string? _uString;
+    public string? UString
+    {
+        get => _uString;
+        private set
+        {
+            _uString = value;
+            OnPropertyChanged(nameof(UString));
+        }
+    }
+
+    private Visibility _groupEvenValuesInUAndTheirSumVisibility;
+    public Visibility GroupEvenValuesInUAndTheirSumVisibility
+    {
+        get => _groupEvenValuesInUAndTheirSumVisibility;
+        private set
+        {
+            _groupEvenValuesInUAndTheirSumVisibility = value;
+            OnPropertyChanged(nameof(GroupEvenValuesInUAndTheirSumVisibility));
         }
     }
 
@@ -51,7 +79,10 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         InitializeComponent();
 
         FormConfirmNVisibility = Visibility.Visible;
-        FormConfirmNAmountOfIntegersVisibility = Visibility.Collapsed;
+        FormConfirmUVisibility = Visibility.Collapsed;
+        GroupEvenValuesInUAndTheirSumVisibility = Visibility.Collapsed;
+        _u = new List<int>();
+        UString = "{}";
         ResetNotification();
     }
     private void ResetNotification ()
@@ -72,7 +103,8 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
             return;
         }
 
-        ConfirmNAmountOfIntegers();
+        _n = int.Parse(NString);
+        ConfirmU();
     }
     private bool NIsValid ()
     {
@@ -82,18 +114,89 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
     {
         Notification = "n phải thuộc Z+ và n thuộc [5 ; 20]";
     }
-    private void ConfirmNAmountOfIntegers ()
+    private void ConfirmU ()
     {
         RemoveFormConfirmN();
-        ShowFormConfirmNAmountOfIntegersVisibility();
+        ShowFormConfirmU();
     }
 
     private void RemoveFormConfirmN ()
     {
         FormConfirmNVisibility = Visibility.Collapsed;
     }
-    private void ShowFormConfirmNAmountOfIntegersVisibility ()
+    private void ShowFormConfirmU ()
     {
-        FormConfirmNAmountOfIntegersVisibility = Visibility.Visible;
+        FormConfirmUVisibility = Visibility.Visible;
+    }
+
+    private void TextBoxAChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ResetNotification();
+    }
+
+    private void ClickedButtonAddIntegerToU (object sender, RoutedEventArgs e)
+    {
+        if (!AStringIsValid())
+        {
+            NotifyAIsNotValid();
+            return;
+        }
+
+        var a = int.Parse(AString);
+        _u.Add(a);
+
+        if (_u.Count == _n)
+        {
+            RemoveFormConfirmU();
+            ShowEvenValuesInUAndTheirSum();
+            return;
+        }
+        UpdateUString();
+    }
+    private bool AStringIsValid ()
+    {
+        return int.TryParse(AString, out _);
+    }
+    private void NotifyAIsNotValid ()
+    {
+        Notification = "a phải thuộc Z";
+    }
+    private void UpdateUString ()
+    {
+        UString = GetUString();
+    }
+    private void RemoveFormConfirmU ()
+    {
+        FormConfirmUVisibility = Visibility.Collapsed;
+    }
+    private void ShowEvenValuesInUAndTheirSum ()
+    {
+        [hiển thị các giá trị chẵn trong U và tổng của chúng ở đây sau khi bổ sung xaml tương ứng]
+
+        GroupEvenValuesInUAndTheirSumVisibility = Visibility.Visible;
+    }
+
+    private string GetUString ()
+    {
+        if (_u.Count == 1)
+        {
+            return "{" + _u[0] + "}";
+        }
+
+        var uString = "{";
+        for (var index = 0; index < _u.Count; index++)
+        {
+            if (index < _u.Count - 1)
+            {
+                uString += _u[index] + " ; ";
+            }
+            else
+            {
+                uString += _u[index];
+            }
+        }
+        uString += "}";
+
+        return uString;
     }
 }

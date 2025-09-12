@@ -11,11 +11,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
-        <StackPanel Orientation="Vertical" Visibility="{Binding FormConfirmNVisibility, Mode=OneWay}">
-            <StackPanel
-                HorizontalAlignment="Center"
-                Orientation="Horizontal"
-                VerticalAlignment="Center">
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{Binding FormConfirmNVisibility, Mode=OneWay}">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Label Content="n = " />
                 <TextBox
                     Height="20"
@@ -24,10 +24,7 @@
                     Width="100" />
             </StackPanel>
 
-            <TextBlock
-                Height="20"
-                Text="{Binding Notification, Mode=OneWay}"
-                Width="250" />
+            <TextBlock Height="20" Text="{Binding Notification, Mode=OneWay}" />
 
             <Button
                 Click="ClickedButtonConfirmN"
@@ -35,6 +32,33 @@
                 HorizontalAlignment="Center" />
         </StackPanel>
 
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{Binding FormConfirmUVisibility, Mode=OneWay}">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Content="số nguyên a = " />
+                <TextBox
+                    Height="20"
+                    Text="{Binding AString, Mode=OneWayToSource}"
+                    TextChanged="TextBoxAChangedText"
+                    Width="100" />
+            </StackPanel>
 
+            <TextBlock Height="20" Text="{Binding Notification, Mode=OneWay}" />
+
+            <Button
+                Click="ClickedButtonAddIntegerToU"
+                Content="Thêm a vào dãy số U"
+                HorizontalAlignment="Center" />
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Content="U = " />
+                <TextBox
+                    Height="20"
+                    IsReadOnly="True"
+                    Text="{Binding UString, Mode=OneWay}" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
