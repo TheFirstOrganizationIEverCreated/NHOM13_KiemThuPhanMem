@@ -24,7 +24,10 @@
                     Width="100" />
             </StackPanel>
 
-            <TextBlock Height="20" Text="{Binding Notification, Mode=OneWay}" />
+            <TextBlock
+                Height="20"
+                Text="{Binding Notification, Mode=OneWay}"
+                TextAlignment="Center" />
 
             <Button
                 Click="ClickedButtonConfirmN"
@@ -45,7 +48,10 @@
                     Width="100" />
             </StackPanel>
 
-            <TextBlock Height="20" Text="{Binding Notification, Mode=OneWay}" />
+            <TextBlock
+                Height="20"
+                Text="{Binding Notification, Mode=OneWay}"
+                TextAlignment="Center" />
 
             <Button
                 Click="ClickedButtonAddIntegerToU"
