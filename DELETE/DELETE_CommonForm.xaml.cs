@@ -36,11 +36,12 @@
         }
 
         var inputValue = .Parse(InputString);
+
         OutputString = GetOutput(inputValue);
     }
     private bool InputIsValid ()
     {
-        return .TryParse(InputString, out var inputValue) &&  && ;
+        return .TryParse(InputString, out var inputValue) && () && ();
     }
     private string GetOutput (double n)
     {
