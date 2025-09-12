@@ -25,6 +25,7 @@
 
         ResetOutput();
     }
+    private void ResetOutput ()
 
     private void InputTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
@@ -50,6 +51,7 @@
         }
 
         var outputValue = numerator / n;
-        return outputValue.ToString();
+
+        return .ToString();
     }
 }
