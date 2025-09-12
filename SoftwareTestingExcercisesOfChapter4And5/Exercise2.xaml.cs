@@ -47,7 +47,7 @@ public partial class Exercise2 : Window, INotifyPropertyChanged
     }
     private void ResetOutputS ()
     {
-        OutputS = "n phải là số nguyên thuộc [5 ; 100]";
+        OutputS = "? n phải là số nguyên thuộc [5 ; 100]";
     }
     private double S (int n)
     {

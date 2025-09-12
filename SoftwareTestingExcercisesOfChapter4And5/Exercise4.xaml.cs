@@ -32,7 +32,7 @@ public partial class Exercise4 : Window, INotifyPropertyChanged
     }
     private void ResetOutput ()
     {
-        Output = "n phải là số nguyên dương và n thuộc [5 ; 20]";
+        Output = "? n phải là số nguyên dương và n thuộc [5 ; 20]";
     }
 
     private void InputTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)

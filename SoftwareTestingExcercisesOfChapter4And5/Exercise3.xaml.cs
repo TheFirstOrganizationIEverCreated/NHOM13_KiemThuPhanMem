@@ -32,7 +32,7 @@ public partial class Exercise3 : Window, INotifyPropertyChanged
     }
     private void ResetOutput ()
     {
-        Output = "n phải là số nguyên dương thuộc [50 ; 100]";
+        Output = "? n phải là số nguyên dương thuộc [50 ; 100]";
     }
 
     private void UserInputNTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
