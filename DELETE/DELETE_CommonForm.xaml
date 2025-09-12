@@ -1,4 +1,6 @@
-﻿<Window DataContext="{Binding RelativeSource={RelativeSource Self}}">
+﻿<Window
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+>
 
     <Grid>
         <Grid.RowDefinitions>
