@@ -1,14 +1,7 @@
-﻿using System.Configuration;
-using System.Data;
+﻿namespace SoftwareTestingExercisesOfChapter4And5;
+
 using System.Windows;
 
-namespace SoftwareTestingExercisesOfChapter4And5
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-    }
-
 }
