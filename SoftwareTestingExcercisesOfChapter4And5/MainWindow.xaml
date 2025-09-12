@@ -13,9 +13,9 @@
         <Label
             Width="30"
             Height="20"
-            Margin="277,217,493,197"
+            Margin="277,100,493,314"
             Padding="0"
-            Content="f(x) = " />
+            Content="x = " />
         <TextBox
             Width="100"
             Height="20"
