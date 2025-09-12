@@ -5,33 +5,28 @@ using System.Windows;
 
 public partial class Exercise1 : Window, INotifyPropertyChanged
 {
-    private double _x;
-    public double X
+    public string? ArgumentString { private get; set; }
+
+    private double _argument;
+    public double Argument
     {
-        get => _x;
+        private get => _argument;
         set
         {
-            _x = value;
-            OnPropertyChanged(nameof(X));
+            _argument = value;
+            OnPropertyChanged(nameof(Argument));
         }
     }
 
-    private double _functionFValue;
-    public double FunctionFValue
+    private string? _functionValueString;
+    public string? FunctionValueString
     {
-        get => _functionFValue;
-        set
+        get => _functionValueString;
+        private set
         {
-            _functionFValue = value;
-            OnPropertyChanged(nameof(FunctionFValue));
+            _functionValueString = value;
+            OnPropertyChanged(nameof(FunctionValueString));
         }
-    }
-
-    public Exercise1 ()
-    {
-        InitializeComponent();
-
-        DataContext = this;
     }
 
     private void OnPropertyChanged (string propertyName)
@@ -40,19 +35,45 @@ public partial class Exercise1 : Window, INotifyPropertyChanged
     }
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    private void ClickedCalculateFunctionFButton (object sender, RoutedEventArgs e)
+    public Exercise1 ()
     {
-        if (X >= 1)
+        InitializeComponent();
+
+        ResetFunctionValueString();
+    }
+    private void ResetFunctionValueString ()
+    {
+        FunctionValueString = string.Empty;
+    }
+
+    private void ArgumentTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (!ArgumentIsValid(ArgumentString))
         {
-            FunctionFValue = Math.Sqrt(Math.Pow(X, 2) + 1);
+            ResetFunctionValueString();
+            return;
         }
-        else if ((-1 < X) && (X < 1))
+
+        Argument = double.Parse(ArgumentString);
+        FunctionValueString = FunctionValue(Argument).ToString();
+    }
+    private bool ArgumentIsValid (string? argumentString)
+    {
+        return double.TryParse(argumentString, out _);
+    }
+    private double FunctionValue (double argument)
+    {
+        if (argument >= 1)
         {
-            FunctionFValue = 3 * X + 5;
+            return Math.Sqrt(Math.Pow(argument, 2) + 1);
+        }
+        else if ((-1 < argument) && (argument < 1))
+        {
+            return 3 * argument + 5;
         }
         else
         {
-            FunctionFValue = Math.Pow(X, 2) + 2 * X - 5;
+            return Math.Pow(argument, 2) + 2 * argument - 5;
         }
     }
 }

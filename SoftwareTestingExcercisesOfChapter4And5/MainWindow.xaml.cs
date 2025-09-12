@@ -1,31 +1,58 @@
 ﻿namespace SoftwareTestingExercisesOfChapter4And5;
 
+using System.ComponentModel;
 using System.Windows;
 
-public partial class MainWindow : Window
+public partial class MainWindow : Window, INotifyPropertyChanged
 {
-    public double X { private get; set; }
-
-    public MainWindow ()
+    private List<Exercise> _exercises;
+    public List<Exercise> Exercises
     {
-        InitializeComponent();
+        get => _exercises;
+        private set
+        {
+            _exercises = value;
+            OnPropertyChanged(nameof(Exercises));
+        }
     }
 
-    private void ClickedShowFunctionFValueButton (
-
-    private double FunctionF ()
+    private Exercise _selectedExercise;
+    public Exercise SelectedExercise
     {
-        if (X >= 1)
+        get => _selectedExercise;
+        set
         {
-            return Math.Sqrt(Math.Pow(X, 2) + 1);
+            _selectedExercise = value;
+            OnPropertyChanged(nameof(SelectedExercise));
         }
-        else if ((-1 < X) && (X < 1))
+    }
+
+    private void OnPropertyChanged (string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+    public MainWindow ()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+    {
+        InitializeComponent();
+
+        Exercises = Enum.GetValues<Exercise>().ToList();
+        SelectedExercise = Exercises[0];
+    }
+
+    private void ClickedRunButton (object sender, RoutedEventArgs e)
+    {
+        switch (SelectedExercise)
         {
-            return 3 * X + 5;
-        }
-        else
-        {
-            return Math.Pow(X, 2) + 2 * X - 5;
+            case Exercise.Exercise1:
+                (new Exercise1()).ShowDialog();
+                break;
+            default:
+                MessageBox.Show("Hiện chưa có bài này hoặc đã có lỗi.");
+                break;
         }
     }
 }

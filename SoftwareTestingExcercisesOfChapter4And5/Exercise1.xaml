@@ -1,7 +1,8 @@
 ﻿<Window
-    Height="450"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Height="300"
     Title="Execise1"
-    Width="800"
+    Width="500"
     mc:Ignorable="d"
     x:Class="SoftwareTestingExercisesOfChapter4And5.Exercise1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -15,50 +16,29 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-
-            <Label
-                Content="x = "
-                Grid.Row="0"
-                HorizontalAlignment="Left"
-                Margin="280,0,0,0"
-                VerticalAlignment="Center"
-                Width="30" />
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+            <Label Content="x = " Width="30" />
             <TextBox
-                Grid.Row="0"
                 Height="20"
-                HorizontalAlignment="Left"
-                Margin="350,0,0,0"
-                Text="{Binding X, Mode=OneWayToSource}"
-                VerticalAlignment="Center"
+                Text="{Binding ArgumentString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                TextChanged="ArgumentTextBoxChangedText"
                 Width="100" />
+        </StackPanel>
 
-            <Label
-                Content="f(x) = "
-                Grid.Row="1"
-                HorizontalAlignment="Left"
-                Margin="280,0,0,0"
-                VerticalAlignment="Center"
-                Width="40" />
-            <TextBlock
-                Grid.Row="1"
-                Height="20"
-                HorizontalAlignment="Left"
-                Margin="350,0,0,0"
-                Text="{Binding FunctionFValue, Mode=OneWay}"
-                VerticalAlignment="Center"
-                Width="100" />
-        </Grid>
-
-        <Button
-            Click="ClickedCalculateFunctionFButton"
-            Content="Tính f(x)"
+        <StackPanel
             Grid.Row="1"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+            <Label Content="f(x) = " Width="40" />
+            <TextBlock
+                Height="20"
+                Text="{Binding FunctionValueString, Mode=OneWay}"
+                Width="100" />
+        </StackPanel>
     </Grid>
 </Window>
