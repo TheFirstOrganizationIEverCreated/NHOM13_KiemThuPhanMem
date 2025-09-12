@@ -1,0 +1,34 @@
+﻿<Window DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+            <Label Content=" = " />
+            <TextBox
+                Height="20"
+                Text="{Binding , Mode=, UpdateSourceTrigger=PropertyChanged}"
+                TextChanged="UserInputNTextBoxChangedText"
+                Width="100" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+            <Label Content=" = " />
+            <TextBlock
+                Height="20"
+                Text="{Binding , Mode=}"
+                Width="250" />
+        </StackPanel>
+    </Grid>
+</Window>
