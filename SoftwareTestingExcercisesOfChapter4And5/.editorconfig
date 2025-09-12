@@ -361,3 +361,6 @@ dotnet_diagnostic.IDE0045.severity = silent
 
 # CA1305: Specify IFormatProvider
 dotnet_diagnostic.CA1305.severity = silent
+
+# CS8604: Possible null reference argument.
+dotnet_diagnostic.CS8604.severity = silent
