@@ -11,6 +11,8 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
+    private void ClickedShowFunctionFValueButton (
+
     private double FunctionF ()
     {
         if (X >= 1)

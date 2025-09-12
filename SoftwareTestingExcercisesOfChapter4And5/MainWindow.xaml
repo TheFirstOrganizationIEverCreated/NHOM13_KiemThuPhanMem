@@ -10,6 +10,32 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <TextBox Text="{Binding X, Mode=OneWayToSource}" />
+        <Label
+            Width="30"
+            Height="20"
+            Margin="277,217,493,197"
+            Padding="0"
+            Content="f(x) = " />
+        <TextBox
+            Width="100"
+            Height="20"
+            Margin="350,103,350,311"
+            Text="{Binding X, Mode=OneWayToSource}" />
+        <Label
+            Width="30"
+            Height="20"
+            Margin="277,217,493,197"
+            Padding="0"
+            Content="f(x) = " />
+        <TextBlock
+            Width="100"
+            Height="20"
+            Margin="350,217,350,197"
+            Text="{Binding FunctionF, Mode=OneWay}" />
+        <Button
+            Margin="0,309,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Tính f(x)" />
     </Grid>
 </Window>
