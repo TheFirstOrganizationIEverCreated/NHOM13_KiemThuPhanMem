@@ -15,7 +15,7 @@
             <TextBox
                 Height="20"
                 Text="{Binding , Mode=, UpdateSourceTrigger=PropertyChanged}"
-                TextChanged="UserInputNTextBoxChangedText"
+                TextChanged=""
                 Width="100" />
         </StackPanel>
 
