@@ -8,7 +8,7 @@
     HorizontalAlignment="Center"
     Orientation="Horizontal"
     VerticalAlignment="Center">
-    <Label Content=" = " Width="30" />
+    <Label Content=" = " />
     <TextBox
         Height="20"
         Text="{Binding , Mode=, UpdateSourceTrigger=PropertyChanged}"
@@ -21,7 +21,7 @@
     HorizontalAlignment="Center"
     Orientation="Horizontal"
     VerticalAlignment="Center">
-    <Label Content=" = " Width="40" />
+    <Label Content=" = " />
     <TextBlock
         Height="20"
         Text="{Binding , Mode=}"
