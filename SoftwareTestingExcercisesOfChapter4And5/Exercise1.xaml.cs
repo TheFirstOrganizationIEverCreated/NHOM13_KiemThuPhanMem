@@ -7,17 +7,6 @@ public partial class Exercise1 : Window, INotifyPropertyChanged
 {
     public string? ArgumentString { private get; set; }
 
-    private double _argument;
-    public double Argument
-    {
-        private get => _argument;
-        set
-        {
-            _argument = value;
-            OnPropertyChanged(nameof(Argument));
-        }
-    }
-
     private string? _functionValueString;
     public string? FunctionValueString
     {
@@ -48,16 +37,16 @@ public partial class Exercise1 : Window, INotifyPropertyChanged
 
     private void ArgumentTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
-        if (!ArgumentIsValid(ArgumentString))
+        if (!ArgumentStringIsValid(ArgumentString))
         {
             ResetFunctionValueString();
             return;
         }
 
-        Argument = double.Parse(ArgumentString);
-        FunctionValueString = FunctionValue(Argument).ToString();
+        var argument = double.Parse(ArgumentString);
+        FunctionValueString = FunctionValue(argument).ToString();
     }
-    private bool ArgumentIsValid (string? argumentString)
+    private bool ArgumentStringIsValid (string? argumentString)
     {
         return double.TryParse(argumentString, out _);
     }
