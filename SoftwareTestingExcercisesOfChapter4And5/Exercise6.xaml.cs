@@ -243,7 +243,7 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
                 stringAllEvenValuesInU += _allEvenValuesInU[index];
             }
         }
-        stringAllEvenValuesInU = "}";
+        stringAllEvenValuesInU += "}";
 
         return stringAllEvenValuesInU;
     }
