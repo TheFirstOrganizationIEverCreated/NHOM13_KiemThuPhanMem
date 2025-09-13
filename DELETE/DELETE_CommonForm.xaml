@@ -2,7 +2,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Label Content=" = " />
+                <TextBlock Text=" = " />
                 <TextBox
                     Height="20"
                     Text="{Binding , Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
