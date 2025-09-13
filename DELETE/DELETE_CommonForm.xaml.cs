@@ -1,33 +1,39 @@
-﻿public partial class DELETE_CommonForm : Window, INotifyPropertyChanged
-{
-    public string? InputString { private get; set; }
+﻿namespace SoftwareTestingExercisesOfChapter4And5;
 
-    private string? _output;
-    public string? OutputString
+using System.ComponentModel;
+using System.Windows;
+
+public partial class DELETE_CommonForm : Window, INotifyPropertyChanged
+{
+    private string? _notification;
+    public string? Notification
     {
-        get => _output;
+        get => _notification;
         private set
         {
-            _output = value;
-            OnPropertyChanged(nameof(OutputString));
+            _notification = value;
+            OnPropertyChanged(nameof(Notification));
         }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
-    private void OnPropertyChanged (string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    public DELETE_CommonForm ()
+    public DELETE_CommonForm()
     {
         InitializeComponent();
 
-        ResetOutput();
+        ResetNotification();
     }
-    private void ResetOutput ()
+    private void ResetNotification()
+    {
+        Notification = string.Empty;
+    }
 
-    private void InputTextBoxChangedText (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    private void InputTextBoxChangedText(object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
         if (!InputIsValid())
         {
@@ -39,11 +45,11 @@
 
         OutputString = GetOutput(inputValue);
     }
-    private bool InputIsValid ()
+    private bool InputIsValid()
     {
         return .TryParse(InputString, out var inputValue) && () && ();
     }
-    private string GetOutput (double n)
+    private string GetOutput(double n)
     {
         double numerator = 0;
         for (uint integer = 1; integer <= n; integer++)
