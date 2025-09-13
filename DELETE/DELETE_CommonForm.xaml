@@ -1,4 +1,7 @@
-﻿<Window DataContext="{Binding RelativeSource={RelativeSource Self}}">
+﻿<
+Window
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+>
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
