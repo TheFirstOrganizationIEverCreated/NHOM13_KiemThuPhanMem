@@ -54,7 +54,7 @@
                 TextAlignment="Center" />
 
             <Button
-                Click="ClickedButtonAddIntegerToU"
+                Click="ClickedButtonAddAToU"
                 Content="Thêm a vào dãy số U"
                 HorizontalAlignment="Center" />
 

@@ -159,7 +159,7 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         ResetNotification();
     }
 
-    private void ClickedButtonAddIntegerToU (object sender, RoutedEventArgs e)
+    private void ClickedButtonAddAToU (object sender, RoutedEventArgs e)
     {
         if (!AStringIsValid())
         {
