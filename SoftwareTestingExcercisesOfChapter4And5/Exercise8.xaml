@@ -10,5 +10,79 @@
     xmlns:local="clr-namespace:SoftwareTestingExercisesOfChapter4And5"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid />
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Name="confirmNSection">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="n = " />
+                <TextBox
+                    Height="20"
+                    Text="{Binding NString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                    TextChanged="NTextBoxChangedTextEventHandler"
+                    Width="100" />
+            </StackPanel>
+
+            <TextBlock
+                Height="20"
+                TextAlignment="Center"
+                x:Name="nNotificationTextBlock" />
+
+            <Button
+                Click="ClickedConfirmNButtonEventHandler"
+                Content="Xác nhận n"
+                HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Collapsed"
+            x:Name="confirmUSection">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="số nguyên a = " />
+                <TextBox
+                    Height="20"
+                    Text="{Binding AString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                    TextChanged="TextBoxAChangedTextEventHandler"
+                    Width="100" />
+            </StackPanel>
+
+            <TextBlock
+                Height="20"
+                TextAlignment="Center"
+                x:Name="aNotificationTextBlock" />
+
+            <Button
+                Click="ClickedConfirmAButtonEventHandler"
+                Content="Thêm a vào U"
+                HorizontalAlignment="Center" />
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="U = " />
+                <TextBox
+                    Height="20"
+                    IsReadOnly="True"
+                    TextChanged="TextBoxAChangedTextEventHandler"
+                    x:Name="uTextBox" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Collapsed"
+            x:Name="amountOfEvenValuesInUAndTheirSumSection">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Số lượng số chẵn trong U = " />
+                <TextBlock x:Name="amountOfEvenValuesInUTextBlock" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Giá trị tổng của các số chẵn trong U = " />
+                <TextBlock x:Name="sumOfEvenValuesInUTextBlock" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </Window>
