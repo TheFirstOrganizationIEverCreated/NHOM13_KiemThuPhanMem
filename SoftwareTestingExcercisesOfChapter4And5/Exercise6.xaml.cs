@@ -68,6 +68,30 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         }
     }
 
+    private readonly List<int> _allEvenValuesInU;
+
+    private string? _stringAllEvenValuesInU;
+    public string? StringAllEvenValuesInU
+    {
+        get => _stringAllEvenValuesInU;
+        private set
+        {
+            _stringAllEvenValuesInU = value;
+            OnPropertyChanged(nameof(StringAllEvenValuesInU));
+        }
+    }
+
+    private string? _stringSumOfAllEvenValuesInU;
+    public string? StringSumOfAllEvenValuesInU
+    {
+        get => _stringSumOfAllEvenValuesInU;
+        private set
+        {
+            _stringSumOfAllEvenValuesInU = value;
+            OnPropertyChanged(nameof(StringSumOfAllEvenValuesInU));
+        }
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged (string propertyName)
     {
@@ -83,6 +107,7 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         GroupEvenValuesInUAndTheirSumVisibility = Visibility.Collapsed;
         _u = new List<int>();
         UString = "{}";
+        _allEvenValuesInU = new List<int>();
         ResetNotification();
     }
     private void ResetNotification ()
@@ -145,13 +170,13 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         var a = int.Parse(AString);
         _u.Add(a);
 
+        UString = GetUString();
         if (_u.Count == _n)
         {
             RemoveFormConfirmU();
             ShowEvenValuesInUAndTheirSum();
             return;
         }
-        UpdateUString();
     }
     private bool AStringIsValid ()
     {
@@ -161,28 +186,8 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
     {
         Notification = "a phải thuộc Z";
     }
-    private void UpdateUString ()
-    {
-        UString = GetUString();
-    }
-    private void RemoveFormConfirmU ()
-    {
-        FormConfirmUVisibility = Visibility.Collapsed;
-    }
-    private void ShowEvenValuesInUAndTheirSum ()
-    {
-        [hiển thị các giá trị chẵn trong U và tổng của chúng ở đây sau khi bổ sung xaml tương ứng]
-
-        GroupEvenValuesInUAndTheirSumVisibility = Visibility.Visible;
-    }
-
     private string GetUString ()
     {
-        if (_u.Count == 1)
-        {
-            return "{" + _u[0] + "}";
-        }
-
         var uString = "{";
         for (var index = 0; index < _u.Count; index++)
         {
@@ -198,5 +203,57 @@ public partial class Exercise6 : Window, INotifyPropertyChanged
         uString += "}";
 
         return uString;
+    }
+    private void RemoveFormConfirmU ()
+    {
+        FormConfirmUVisibility = Visibility.Collapsed;
+    }
+    private void ShowEvenValuesInUAndTheirSum ()
+    {
+        foreach (var value in _u)
+        {
+            if (int.IsEvenInteger(value))
+            {
+                _allEvenValuesInU.Add(value);
+            }
+        }
+        // avoid calling OnPropertyChanged too many times
+        StringAllEvenValuesInU = GetStringAllEvenValuesInU();
+        StringSumOfAllEvenValuesInU = GetStringSumOfAllEvenValuesInU();
+
+        GroupEvenValuesInUAndTheirSumVisibility = Visibility.Visible;
+    }
+
+    private string GetStringAllEvenValuesInU ()
+    {
+        if (UHasNoEvenValue)
+        {
+            return "KHÔNG TỒN TẠI";
+        }
+
+        var stringAllEvenValuesInU = "{";
+        for (var index = 0; index < _allEvenValuesInU.Count; index++)
+        {
+            if (index != _allEvenValuesInU.Count - 1)
+            {
+                stringAllEvenValuesInU += $"{_allEvenValuesInU[index]} ; ";
+            }
+            else
+            {
+                stringAllEvenValuesInU += _allEvenValuesInU[index];
+            }
+        }
+        stringAllEvenValuesInU = "}";
+
+        return stringAllEvenValuesInU;
+    }
+
+    private bool UHasNoEvenValue => _allEvenValuesInU.Count == 0;
+
+    private string GetStringSumOfAllEvenValuesInU ()
+    {
+        return UHasNoEvenValue ?
+            "KHÔNG TỒN TẠI" :
+            _allEvenValuesInU.Sum().ToString();
     }
 }

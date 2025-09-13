@@ -66,5 +66,34 @@
                     Text="{Binding UString, Mode=OneWay}" />
             </StackPanel>
         </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{Binding GroupEvenValuesInUAndTheirSumVisibility, Mode=OneWay}">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Content="U = " />
+                <TextBox
+                    Height="20"
+                    IsReadOnly="True"
+                    Text="{Binding UString, Mode=OneWay}" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Tất cả số chẵn trong U: " />
+                <TextBox
+                    Height="20"
+                    IsReadOnly="True"
+                    Text="{Binding StringAllEvenValuesInU, Mode=OneWay}" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Tổng tất cả số chẵn trong U: " />
+                <TextBox
+                    Height="20"
+                    IsReadOnly="True"
+                    Text="{Binding StringSumOfAllEvenValuesInU, Mode=OneWay}" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
