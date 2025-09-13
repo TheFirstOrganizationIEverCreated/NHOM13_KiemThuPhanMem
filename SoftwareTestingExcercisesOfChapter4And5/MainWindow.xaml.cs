@@ -33,9 +33,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     public event PropertyChangedEventHandler? PropertyChanged;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     public MainWindow ()
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         InitializeComponent();
 
@@ -64,6 +62,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 break;
             case Exercise.Exercise6:
                 (new Exercise6()).ShowDialog();
+                break;
+            case Exercise.Exercise7:
+                (new Exercise7()).ShowDialog();
                 break;
             default:
                 MessageBox.Show("Hiện chưa có bài này hoặc đã có lỗi.");
