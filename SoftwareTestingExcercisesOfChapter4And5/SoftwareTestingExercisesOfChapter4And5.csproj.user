@@ -8,7 +8,13 @@
     <Compile Update="Exercise10.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Exercise18.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Exercise2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Exercise20.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Exercise3.xaml.cs">
