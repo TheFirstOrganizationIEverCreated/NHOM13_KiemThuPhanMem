@@ -4,8 +4,8 @@ using System.Windows;
 
 public partial class Exercise9 : Window
 {
-    private readonly (int x, int y) _aCoordinate;
-    private readonly (int x, int y) _bCoordinate;
+    private readonly (double x, double y) _aCoordinate;
+    private readonly (double x, double y) _bCoordinate;
     private readonly double _aB;
 
     public string? RString { private get; set; }
@@ -14,7 +14,7 @@ public partial class Exercise9 : Window
     {
         InitializeComponent();
 
-        int x1 = 0, y1 = 0,
+        double x1 = 0, y1 = 0,
             x2 = 7, y2 = 0;
         _aCoordinate = (x1, y1);
         _bCoordinate = (x2, y2);
