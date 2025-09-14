@@ -75,6 +75,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case Exercise.Exercise18:
                 (new Exercise18()).ShowDialog();
                 break;
+            case Exercise.Exercise20:
+                (new Exercise20()).ShowDialog();
+                break;
             default:
                 MessageBox.Show("Hiện chưa có bài này hoặc đã có lỗi.");
                 break;
