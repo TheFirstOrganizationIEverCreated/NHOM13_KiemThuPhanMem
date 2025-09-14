@@ -11,10 +11,17 @@ public partial class DELETE_CommonForm : Window, INotifyPropertyChanged
         get => _notification;
         private set
         {
+			if(_notification == value)
+			{
+				return;
+			}
+			
             _notification = value;
             OnPropertyChanged(nameof(Notification));
         }
     }
+	
+	public string? Input { private get; set; }
 
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged(string propertyName)
