@@ -10,5 +10,73 @@
     xmlns:local="clr-namespace:SoftwareTestingExercisesOfChapter4And5"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid />
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="xA = " />
+                    <TextBox
+                        Text="{Binding StringAbscissaOfA, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="AbscissaOfATextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="yA = " />
+                    <TextBox
+                        Text="{Binding StringOrdinateOfA, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="OrdinateOfATextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0"
+                VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="xB = " Width="27.5" />
+                    <TextBox
+                        Text="{Binding StringAbscissaOfB, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="AbscissaOfBTextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="yB = " />
+                    <TextBox
+                        Text="{Binding StringOrdinateOfB, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="OrdinateOfBTextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0"
+                VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="xC = " />
+                    <TextBox
+                        Text="{Binding StringAbscissaOfC, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="AbscissaOfCTextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="yC = " />
+                    <TextBox
+                        Text="{Binding StringOrdinateOfC, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        TextChanged="OrdinateOfCTextBoxChangedTextEventHandler"
+                        Width="80" />
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock
+                Margin="0,20,0,0"
+                Text="{Binding Notification, Mode=OneWay}"
+                TextAlignment="Center"
+                VerticalAlignment="Top" />
+        </StackPanel>
+    </Grid>
 </Window>

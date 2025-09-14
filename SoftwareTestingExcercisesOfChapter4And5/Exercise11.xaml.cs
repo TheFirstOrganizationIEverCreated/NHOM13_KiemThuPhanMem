@@ -26,56 +26,170 @@ public partial class Exercise11 : Window, INotifyPropertyChanged
         }
     }
 
-    private string? _aCoordinateString;
-    public string? ACoordinateString
+    private string? _stringAbscissaOfA;
+    public string? StringAbscissaOfA
     {
-        private get => _aCoordinateString;
+        private get => _stringAbscissaOfA;
         set
         {
-            if (_aCoordinateString == value)
+            if (_stringAbscissaOfA == value)
             {
                 return;
             }
 
-            _aCoordinateString = value;
-            OnPropertyChanged(nameof(ACoordinateString));
+            _stringAbscissaOfA = value;
+            OnPropertyChanged(nameof(StringAbscissaOfA));
         }
     }
 
-    private string? _bCoordinateString;
-    public string? BCoordinateString
+    private string? _stringOrdinateOfA;
+    public string? StringOrdinateOfA
     {
-        private get => _bCoordinateString;
+        private get => _stringOrdinateOfA;
         set
         {
-            if (_bCoordinateString == value)
+            if (_stringOrdinateOfA == value)
             {
                 return;
             }
 
-            _bCoordinateString = value;
-            OnPropertyChanged(nameof(BCoordinateString));
+            _stringOrdinateOfA = value;
+            OnPropertyChanged(nameof(StringOrdinateOfA));
         }
     }
 
-    private string? _cCoordinateString;
-    public string? CCoordinateString
+    private string? _stringAbscissaOfB;
+    public string? StringAbscissaOfB
     {
-        private get => _cCoordinateString;
+        private get => _stringAbscissaOfB;
         set
         {
-            if (_cCoordinateString == value)
+            if (_stringAbscissaOfB == value)
             {
                 return;
             }
 
-            _cCoordinateString = value;
-            OnPropertyChanged(nameof(CCoordinateString));
+            _stringAbscissaOfB = value;
+            OnPropertyChanged(nameof(StringAbscissaOfB));
+        }
+    }
+
+    private string? _stringOrdinateOfB;
+    public string? StringOrdinateOfB
+    {
+        private get => _stringOrdinateOfB;
+        set
+        {
+            if (_stringOrdinateOfB == value)
+            {
+                return;
+            }
+            _stringOrdinateOfB = value;
+            OnPropertyChanged(nameof(StringOrdinateOfB));
+        }
+    }
+
+    private string? _stringAbscissaOfC;
+    public string? StringAbscissaOfC
+    {
+        private get => _stringAbscissaOfC;
+        set
+        {
+            if (_stringAbscissaOfC == value)
+            {
+                return;
+            }
+
+            _stringAbscissaOfC = value;
+            OnPropertyChanged(nameof(StringAbscissaOfC));
+        }
+    }
+
+    private string? _stringOrdinateOfC;
+    public string? StringOrdinateOfC
+    {
+        private get => _stringOrdinateOfC;
+        set
+        {
+            if (_stringOrdinateOfC == value)
+            {
+                return;
+            }
+            _stringOrdinateOfC = value;
+            OnPropertyChanged(nameof(StringOrdinateOfC));
         }
     }
 
     public Exercise11 ()
     {
         InitializeComponent();
+
+        NotifyNotAllCoordinatesAreValid();
+    }
+
+    private void NotifyNotAllCoordinatesAreValid ()
+    {
+        UpdateNotification("Tọa độ của tất cả A,B,C đều phải hợp lệ");
+    }
+
+    private void UpdateNotification (string notification)
+    {
+        Notification = notification;
+    }
+
+    private void AbscissaOfATextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void OrdinateOfATextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void AbscissaOfBTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void OrdinateOfBTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void AbscissaOfCTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void OrdinateOfCTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ValidateCoordinates();
+    }
+
+    private void ValidateCoordinates ()
+    {
+        if (!AllCoordinatesAreValid())
+        {
+            NotifyNotAllCoordinatesAreValid();
+        }
+        else
+        {
+            ClearNotification();
+        }
+    }
+    private bool AllCoordinatesAreValid ()
+    {
+        return double.TryParse(StringAbscissaOfA, out _) &&
+               double.TryParse(StringOrdinateOfA, out _) &&
+               double.TryParse(StringAbscissaOfB, out _) &&
+               double.TryParse(StringOrdinateOfB, out _) &&
+               double.TryParse(StringAbscissaOfC, out _) &&
+               double.TryParse(StringOrdinateOfC, out _);
+    }
+
+    private void ClearNotification ()
+    {
+        UpdateNotification(string.Empty);
     }
 }
