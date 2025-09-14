@@ -11,31 +11,19 @@ public partial class Exercise10 : Window, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    private string? _nNotification;
-    public string? NNotification
+    private string? _notification;
+    public string? Notification
     {
-        get => _nNotification;
+        get => _notification;
         private set
         {
-            if (_nNotification != value)
+            if (_notification == value)
             {
-                _nNotification = value;
-                OnPropertyChanged(nameof(NNotification));
+                return;
             }
-        }
-    }
 
-    private string? _xNotification;
-    public string? XNotification
-    {
-        get => _xNotification;
-        private set
-        {
-            if (_xNotification != value)
-            {
-                _xNotification = value;
-                OnPropertyChanged(nameof(XNotification));
-            }
+            _notification = value;
+            OnPropertyChanged(nameof(Notification));
         }
     }
 
@@ -49,11 +37,13 @@ public partial class Exercise10 : Window, INotifyPropertyChanged
         get => _sString;
         private set
         {
-            if (_sString != value)
+            if (_sString == value)
             {
-                _sString = value;
-                OnPropertyChanged(nameof(SString));
+                return;
             }
+
+            _sString = value;
+            OnPropertyChanged(nameof(SString));
         }
     }
 
@@ -62,16 +52,101 @@ public partial class Exercise10 : Window, INotifyPropertyChanged
         InitializeComponent();
 
         NotifyInvalidN();
-        NotifyInvalidX();
     }
 
     private void NotifyInvalidN ()
     {
-        NNotification = "n phải thuộc Z+ và n thuộc [50 ; 100]";
+        Notification = "n phải thuộc Z+ và n thuộc [50 ; 100]";
     }
 
     private void NotifyInvalidX ()
     {
+        Notification = "x phải là số nguyên khác 0";
+    }
 
+    private void NTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (!NIsValid())
+        {
+            NotifyInvalidN();
+        }
+        else
+        {
+            ClearNotification();
+        }
+    }
+
+    private bool NIsValid ()
+    {
+        return int.TryParse(NString, out var n) && (50 <= n) && (n <= 100);
+    }
+
+    private void ClearNotification ()
+    {
+        Notification = string.Empty;
+    }
+
+    private void ClickedConfirmNButtonEventHandler (object sender, RoutedEventArgs e)
+    {
+        if (!NIsValid())
+        {
+            return;
+        }
+
+        ConfirmX();
+    }
+
+    private void ConfirmX ()
+    {
+        RemoveNSection();
+        ShowXSection();
+    }
+    private void RemoveNSection ()
+    {
+        section1.Visibility = Visibility.Collapsed;
+    }
+    private void ShowXSection ()
+    {
+        section2.Visibility = Visibility.Visible;
+    }
+
+    private void XTextBoxChangedTextEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (!XIsValid())
+        {
+            NotifyInvalidX();
+            ClearS();
+            return;
+        }
+        ClearNotification();
+
+        ShowS();
+    }
+    private bool XIsValid ()
+    {
+        return int.TryParse(XString, out var x) && (x != 0);
+    }
+    private void ClearS ()
+    {
+        SString = string.Empty;
+    }
+    private void ShowS ()
+    {
+        SString = S().ToString();
+    }
+    private double S ()
+    {
+        double numerator = 0;
+
+        {
+            var n = double.Parse(NString);
+            for (double positiveInteger = 1; positiveInteger <= n; positiveInteger++)
+            {
+                numerator += 2 * positiveInteger - 1;
+            }
+        }
+
+        var x = double.Parse(XString);
+        return numerator / x;
     }
 }
