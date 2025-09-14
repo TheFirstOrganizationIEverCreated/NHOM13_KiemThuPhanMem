@@ -15,6 +15,8 @@ public partial class DELETE_CommonForm : Window, INotifyPropertyChanged
             OnPropertyChanged(nameof(Notification));
         }
     }
+	
+	public string? Input { private get; set; }
 
     public event PropertyChangedEventHandler? PropertyChanged;
     private void OnPropertyChanged(string propertyName)
