@@ -2,6 +2,7 @@
 
 using System.ComponentModel;
 using System.Windows;
+using SoftwareTestingExercisesOfChapter4And5.Commons;
 
 public partial class Exercise12 : Window, INotifyPropertyChanged
 {
@@ -177,10 +178,7 @@ public partial class Exercise12 : Window, INotifyPropertyChanged
     }
     private void UpdateUString ()
     {
-        var uString = string.Join(" ; ", _u);
-        uString = "{" + uString + "}";
-
-        UString = uString;
+        UString = Common.CollectionString(_u);
     }
     private void ShowConclusion ()
     {

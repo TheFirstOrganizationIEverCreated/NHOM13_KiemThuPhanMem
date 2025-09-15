@@ -1,4 +1,4 @@
-﻿namespace SoftwareTestingExercisesOfChapter4And5.Common;
+﻿namespace SoftwareTestingExercisesOfChapter4And5.Commons;
 
 internal class Common
 {
