@@ -78,6 +78,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case Exercise.Exercise11:
                 (new Exercise11()).ShowDialog();
                 break;
+            case Exercise.Exercise12:
+                (new Exercise12()).ShowDialog();
+                break;
             case Exercise.Exercise18:
                 (new Exercise18()).ShowDialog();
                 break;
