@@ -176,20 +176,54 @@ public partial class Exercise11 : Window, INotifyPropertyChanged
         else
         {
             ClearNotification();
+            ShowConclusion();
         }
     }
     private bool AllCoordinatesAreValid ()
     {
-        return double.TryParse(StringAbscissaOfA, out _) &&
-               double.TryParse(StringOrdinateOfA, out _) &&
-               double.TryParse(StringAbscissaOfB, out _) &&
-               double.TryParse(StringOrdinateOfB, out _) &&
-               double.TryParse(StringAbscissaOfC, out _) &&
-               double.TryParse(StringOrdinateOfC, out _);
+        return decimal.TryParse(StringAbscissaOfA, out _) &&
+               decimal.TryParse(StringOrdinateOfA, out _) &&
+
+               decimal.TryParse(StringAbscissaOfB, out _) &&
+               decimal.TryParse(StringOrdinateOfB, out _) &&
+
+               decimal.TryParse(StringAbscissaOfC, out _) &&
+               decimal.TryParse(StringOrdinateOfC, out _);
     }
 
     private void ClearNotification ()
     {
         UpdateNotification(string.Empty);
+    }
+
+    private void ShowConclusion ()
+    {
+        var notification = $"A({StringAbscissaOfA} ; {StringOrdinateOfA})";
+        notification += $"\nB({StringAbscissaOfB} ; {StringOrdinateOfB})";
+        notification += $"\nC({StringAbscissaOfC} ; {StringOrdinateOfC})";
+
+        if (AIsMidpointOfBC())
+        {
+            notification += "\n\nA là trung điểm BC";
+        }
+        else
+        {
+            notification += "\n\nA không phải trung điểm BC";
+        }
+
+        Notification = notification;
+    }
+    private bool AIsMidpointOfBC ()
+    {
+        decimal xA = decimal.Parse(StringAbscissaOfA),
+            yA = decimal.Parse(StringOrdinateOfA),
+
+            xB = decimal.Parse(StringAbscissaOfB),
+            yB = decimal.Parse(StringOrdinateOfB),
+
+            xC = decimal.Parse(StringAbscissaOfC),
+            yC = decimal.Parse(StringOrdinateOfC);
+
+        return (xA == (xB + xC) / 2m) && (yA == (yB + yC) / 2m);
     }
 }
