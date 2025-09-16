@@ -14,16 +14,10 @@
     <Compile Update="Exercise18.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Exercise16.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Exercise2.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Exercise20.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Exercise21.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Exercise22.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Exercise3.xaml.cs">
@@ -45,6 +39,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Exercise9.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Exercise20.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Exercise21.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Exercise22.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
