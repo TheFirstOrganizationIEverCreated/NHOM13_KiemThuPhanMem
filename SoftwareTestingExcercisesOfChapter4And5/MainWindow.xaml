@@ -3,6 +3,7 @@
     Height="450"
     Title="MainWindow"
     Width="800"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d"
     x:Class="SoftwareTestingExercisesOfChapter4And5.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
