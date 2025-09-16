@@ -1,6 +1,7 @@
 ﻿<
 Window
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
+	WindowStartupLocation="CenterOwner"
 >
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
