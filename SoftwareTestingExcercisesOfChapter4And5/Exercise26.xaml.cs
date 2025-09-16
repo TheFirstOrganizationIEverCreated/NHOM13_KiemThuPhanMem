@@ -1,34 +1,80 @@
 ﻿namespace SoftwareTestingExercisesOfChapter4And5;
 
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 using System.Windows;
+using SoftwareTestingExercisesOfChapter4And5.Commons;
 
-public partial class Exercise26 : Window
+public partial class Exercise26 : Window, INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler? PropertyChanged;
+    private void OnPropertyChanged (string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private string? _yString;
+    public string? YString
+    {
+        get => _yString;
+        private set
+        {
+            if (_yString == value)
+            {
+                return;
+            }
+
+            _yString = value;
+            OnPropertyChanged(nameof(YString));
+        }
+    }
+
+    private string? _averageOfYSequenceString;
+    public string? AverageOfYSequenceString
+    {
+        get => _averageOfYSequenceString;
+        private set
+        {
+            if (_averageOfYSequenceString == value)
+            {
+                return;
+            }
+
+            _averageOfYSequenceString = value;
+            OnPropertyChanged(nameof(AverageOfYSequenceString));
+        }
+    }
+
     public Exercise26 ()
     {
         InitializeComponent();
-        CalculateAndShow();
+
+        ShowResults();
+    }
+    private void ShowResults ()
+    {
+        var y = GetY();
+
+        YString = Common.CollectionString(y);
+
+        AverageOfYSequenceString = GetAverageOfYSequence(y).ToString();
     }
 
-    private void BtnCalc_Click (object sender, RoutedEventArgs e)
+    private List<decimal> GetY ()
     {
-        CalculateAndShow();
-    }
+        var y = new List<decimal>();
 
-    private void CalculateAndShow ()
-    {
-        decimal y0 = 2;
-        var values = new List<decimal> { y0 };
-        for (var i = 0; i < 10; i++)
         {
-            values.Add(values.Last() * 0.5m);
+            var yI = 2m;
+            for (var i = 0; i <= 10; i++, yI = 0.5m * yI)
+            {
+                y.Add(yI);
+            }
         }
 
-        var display = values.Select((v, idx) => $"y{idx} = {v.ToString("G6")}");
-        ListY.ItemsSource = display;
-        TxtAverage.Text = values.Average().ToString("G6");
-        LblCount.Text = $"Số phần tử: {values.Count}";
+        return y;
+    }
+    private decimal GetAverageOfYSequence (List<decimal> y)
+    {
+        return y.Average();
     }
 }
