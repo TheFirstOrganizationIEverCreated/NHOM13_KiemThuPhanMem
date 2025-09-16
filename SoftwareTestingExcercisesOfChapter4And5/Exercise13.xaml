@@ -1,0 +1,52 @@
+﻿<Window
+    Height="180"
+    ResizeMode="NoResize"
+    Title="Exercise13"
+    Width="380"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d"
+    x:Class="SoftwareTestingExercisesOfChapter4And5.Exercise13"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Margin="0,0,0,8"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+            <TextBlock
+                Margin="0,0,8,0"
+                Text="Nhập n thuộc [10 ; 50]:"
+                VerticalAlignment="Center" />
+            <TextBox
+                Name="InputN"
+                VerticalAlignment="Center"
+                Width="80" />
+            <Button
+                Click="Compute_Click"
+                Content="Compute"
+                Margin="8,0,0,0"
+                Padding="8,2" />
+        </StackPanel>
+
+        <TextBlock
+            Foreground="Red"
+            Grid.Row="1"
+            Name="MessageText" />
+
+        <TextBlock
+            FontSize="14"
+            Grid.Row="2"
+            Margin="0,8,0,0"
+            Name="ResultText"
+            TextWrapping="Wrap" />
+    </Grid>
+</Window>
