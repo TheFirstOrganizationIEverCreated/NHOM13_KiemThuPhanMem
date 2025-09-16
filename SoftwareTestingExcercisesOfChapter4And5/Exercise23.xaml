@@ -1,0 +1,27 @@
+﻿<Window
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Height="450"
+    Title="Exercise23"
+    Width="800"
+    mc:Ignorable="d"
+    x:Class="SoftwareTestingExercisesOfChapter4And5.Exercise23"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Width="250">
+        <TextBlock Text="Nhập BMI:" />
+
+        <TextBox
+            Text="{Binding BMIString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+            TextChanged="UTextBoxTextChangedEventHandler"
+            Width="150" />
+
+        <TextBlock HorizontalAlignment="Center" Text="{Binding Notification, Mode=OneWay}" />
+    </StackPanel>
+
+</Window>
