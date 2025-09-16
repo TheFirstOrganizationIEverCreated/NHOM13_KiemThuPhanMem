@@ -2,8 +2,22 @@
 
 internal class Common
 {
-    public static string CollectionString<CollectionType> (CollectionType collection) where CollectionType : System.Collections.IEnumerable
+    public static string CollectionString<CollectionType> (CollectionType collection) where CollectionType : System.Collections.IList
     {
-        return "{" + string.Join(" ; ", collection) + "}";
+        var collectionString = "{";
+        for (var index = 0; index < collection.Count; index++)
+        {
+            if (index < collection.Count - 1)
+            {
+                collectionString += $"{collection[index]} ; ";
+            }
+            else
+            {
+                collectionString += collection[index];
+            }
+        }
+        collectionString += "}";
+
+        return collectionString;
     }
 }
