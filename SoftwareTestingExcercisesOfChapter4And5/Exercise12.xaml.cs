@@ -99,6 +99,7 @@ public partial class Exercise12 : Window, INotifyPropertyChanged
     {
         InitializeComponent();
 
+        NotifyInvalidN();
         _u = new List<int>();
     }
 
@@ -185,6 +186,13 @@ public partial class Exercise12 : Window, INotifyPropertyChanged
         confirmUSection.Visibility = Visibility.Collapsed;
         conclusionSection.Visibility = Visibility.Visible;
 
+        var multipleOf3IntegersInU = GetMultipleOf3IntegersInU();
+        multipleOf3IntegersInUTextBlock.Text = Common.CollectionString(multipleOf3IntegersInU);
+        sumOfMultipleOf3IntegersInUTextBlock.Text = multipleOf3IntegersInU.Sum().ToString();
+    }
 
+    private List<int> GetMultipleOf3IntegersInU ()
+    {
+        return _u.Where(x => x % 3 == 0).ToList();
     }
 }
