@@ -23,6 +23,9 @@
     <Compile Update="Exercise23.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Exercise26.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Exercise3.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
