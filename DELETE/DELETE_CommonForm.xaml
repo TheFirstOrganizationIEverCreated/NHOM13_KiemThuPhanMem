@@ -8,21 +8,19 @@ Window
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text=" = " />
                 <TextBox
-                    Height="20"
                     Text="{Binding , Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                     TextChanged=""
                     Width="100" />
             </StackPanel>
 
+            <TextBlock
+                Text="{Binding Notification, Mode=OneWay}"
+                TextAlignment="Center" />
+
             <Button
                 Click=""
                 Content="Xác nhận "
                 HorizontalAlignment="Center" />
-
-            <TextBlock
-                Height="20"
-                Text="{Binding Notification, Mode=OneWay}"
-                TextAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>
