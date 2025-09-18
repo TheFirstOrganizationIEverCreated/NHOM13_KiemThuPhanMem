@@ -1,0 +1,41 @@
+﻿<Window
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Height="450"
+    Title="Bài 25 - Áp suất"
+    Width="800"
+    mc:Ignorable="d"
+    x:Class="SoftwareTestingExercisesOfChapter4And5.Exercise25"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Width="250">
+        <TextBlock Text="Nhập F (≥0):" />
+        <TextBox
+            Margin="0,5"
+            Text="{Binding FString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+            TextChanged="InputTextChanged"
+            Width="150" />
+
+        <TextBlock Text="Nhập S (&gt;0):" />
+        <TextBox
+            Margin="0,5"
+            Text="{Binding SString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+            TextChanged="InputTextChanged"
+            Width="150" />
+
+        <TextBlock
+            Foreground="Red"
+            Margin="0,5"
+            Text="{Binding Notification}" />
+        <TextBlock
+            FontWeight="Bold"
+            Foreground="Blue"
+            Margin="0,10"
+            Text="{Binding Result}" />
+    </StackPanel>
+</Window>
