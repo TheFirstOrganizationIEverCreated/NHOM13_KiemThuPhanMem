@@ -12,20 +12,29 @@ public partial class DELETE_CommonForm : Window, INotifyPropertyChanged
     }
 	
     private string? _notification;
-    public string? Notification
-    {
-        get => _notification;
-        private set
-        {
-			if(_notification == value)
+	public string? Notification
+	{
+		get => _notification;
+		private set
+		{
+			if (_notification == value)
 			{
 				return;
 			}
-			
-            _notification = value;
-            OnPropertyChanged(nameof(Notification));
-        }
-    }
+
+			_notification = value;
+			OnPropertyChanged(nameof(Notification));
+		}
+	}
+	private void UpdateNotification (string notification)
+	{
+		Notification = notification;
+	}
+
+	private void ClearNotification ()
+	{
+		UpdateNotification(string.Empty);
+	}
 	
 	public string? Input { private get; set; }
 
