@@ -12,27 +12,54 @@ public partial class Exercise13 : Window
 
     private void Compute_Click (object sender, RoutedEventArgs e)
     {
-        MessageText.Text = string.Empty;
-        ResultText.Text = string.Empty;
-
-        if (!int.TryParse(InputN.Text.Trim(), out var n))
+        if (!(NIsInteger()
+            && NIsInRange()))
         {
-            MessageText.Text = "Please enter an integer.";
+            UpdateMessageText("n phải là số nguyên thuộc (10, 50)");
+            ClearResultText();
             return;
         }
+        ClearMessageText();
 
-        if (!((10 < n) && (n < 50)))
+        var n = int.Parse(InputN.Text.Trim());
+
+        double s = 0;
+        for (var count = 1;
+            count <= n;
+            count++)
         {
-            MessageText.Text = "Condition not satisfied. Require 10 < n < 50.";
-            return;
+            s += 1.0 / Math.Sqrt(count * (count + 1));
         }
+        UpdateResultText($"S = {s}");
+    }
 
-        var sum = 0.0;
-        for (var i = 1; i <= n; i++)
-        {
-            sum += 1.0 / Math.Sqrt(i * (i + 1));
-        }
+    private bool NIsInteger ()
+    {
+        return int.TryParse(InputN.Text.Trim(), out _);
+    }
+    private bool NIsInRange ()
+    {
+        var n = int.Parse(InputN.Text.Trim());
+        return (10 < n) && (n < 50);
+    }
 
-        ResultText.Text = $"n = {n}\nS = {sum:F12}";
+    private void UpdateMessageText (string message)
+    {
+        MessageText.Text = message;
+    }
+
+    private void ClearMessageText ()
+    {
+        UpdateMessageText(string.Empty);
+    }
+
+    private void UpdateResultText (string result)
+    {
+        ResultText.Text = result;
+    }
+
+    private void ClearResultText ()
+    {
+        UpdateResultText(string.Empty);
     }
 }
