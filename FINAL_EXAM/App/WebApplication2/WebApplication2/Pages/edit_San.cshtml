@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplication2.Pages.edit_SanModel
+@{
+}
+<br />
+<h2>Edit Plance Information</h2>
+
+@* Kiểm tra xem có errorMessage không, nếu có thì hiển thị thông báo *@ 
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@*Form để  hiển thị và edit dữ liệu*@
+<form method="post">
+    @*id của client đang được hiển thị để edit*@ 
+    <input type="hidden" name="id" value="@Model.placesInfo.Id" />
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.placesInfo.Name">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Type</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="type" value="@Model.placesInfo.Type">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Price</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="price" value="@Model.placesInfo.Price">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Price</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="location" value="@Model.placesInfo.Location">
+        </div>
+    </div>
+    @*button submit và cancel*@ 
+    <div class="row mb-3">
+        <div class="col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/DSSan" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

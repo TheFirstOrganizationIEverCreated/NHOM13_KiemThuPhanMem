@@ -1,0 +1,58 @@
+﻿@page
+@model DanhSachSanModel
+@{
+}
+<!--Bang thoi gian-->
+<h2>Danh Sách Sân</h2>
+<div class="schedule-wrapper">
+    <form method="get">
+        <label for="selectedDate">Chọn ngày:</label>
+        <input type="date" id="selectedDate" name="selectedDate" value="@Model.SelectedDate.ToString("yyyy-MM-dd")" />
+        <button type="submit">Xem lịch</button>
+	</form>
+	<h3>Lịch đặt sân ngày @Model.SelectedDate.ToString("dd/MM/yyyy")</h3>
+    <table class="schedule">
+        <thead>
+            <tr>
+            <th>Sân</th>
+            @foreach (var slot in Model.TimeSlots)
+            {
+                <th>@slot.SlotLabel</th>
+            }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var field in Model.FieldList)
+            {
+                <tr>
+                    <td>@field.Name</td>
+                    @foreach (var status in field.SlotStatuses)
+                    {
+                        <td class="@(status == "Đã đặt" ? "booked" : "available")">@status</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!--bảng chọn sânn-->
+<h2>Chi tiết sân</h2>
+
+<div class="fields-detail">
+    @foreach (var item in Model.listPlaces)
+    {
+        <div class="fields-card">
+            <img class="img-card" src="@item.Img_URl" alt="Sân Img">
+            <div class="fields-info">
+				<p>Giá: @item.Price</p>
+				<p>Loại sân: @item.Type</p>
+				<p>Vị trí: @item.Location</p>
+                <form method="get" asp-page="/ChiTietSan">
+                    <input type="hidden" name="PlaceId" value="@item.ID" />
+                    <button type="submit">Chi tiết</button>
+                </form>
+
+			</div>
+		</div>
+	}
+</div>

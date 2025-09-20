@@ -1,0 +1,33 @@
+﻿@page
+@model WebApplication2.Pages.EditSanModel
+@{
+}
+<br />
+<h2>Danh Sách Sân</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Price</th>
+			<th>Location</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	@foreach (var item in Model.placesInfos)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			<td>@item.Type</td>
+			<td>@item.Price vnđ</td>
+			<th>@item.Location</th>
+			<td>
+				<a class="btn btn-primary btn-sm" href="/edit_San?id=@item.Id">Edit</a>
+				<a class="btn btn-danger btn-sm" href="/Delete_San?id=@item.Id">Delete</a>
+			</td>
+		</tr>
+	}
+	<a class="btn btn-primary btn-sm" href="#">Tạo Sân Mới</a>					
+</table>

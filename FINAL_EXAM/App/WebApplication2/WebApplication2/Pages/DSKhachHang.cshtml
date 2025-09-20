@@ -1,0 +1,32 @@
+﻿@page
+@model WebApplication2.Pages.DSKhachHangModel
+@{
+}
+<br />
+<h2>Lists of Clients on MyStore</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	@foreach (var item in Model.listClients)
+	{
+		<tr>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			<td>@item.Email</td>
+			<td>@item.Phone</td>	
+			<td>
+				<a class="btn btn-primary btn-sm" href="/edit?id=@item.Id">Edit</a>
+				<a class="btn btn-danger btn-sm" href="/Delete?id=@item.Id">Delete</a>
+			</td>
+		</tr>
+	}
+	<tbody>
+	</tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@page
+@model WebApplication2.Pages.editModel
+@{
+}
+<br />
+<h2>Edit Client Information</h2>
+
+@* Kiểm tra xem có errorMessage không, nếu có thì hiển thị thông báo *@ 
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@*Form để  hiển thị và edit dữ liệu*@
+<form method="post">
+    @*id của client đang được hiển thị để edit*@ 
+    <input type="hidden" name="id" value="@Model.clientInfo.Id" />
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.clientInfo.Name">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.clientInfo.Email">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Phone</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="phone" value="@Model.clientInfo.Phone">
+        </div>
+    </div>
+    @*button submit và cancel*@ 
+    <div class="row mb-3">
+        <div class="col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/DSKhachHang" role="button">Cancel</a>
+        </div>
+    </div>
+</form> 

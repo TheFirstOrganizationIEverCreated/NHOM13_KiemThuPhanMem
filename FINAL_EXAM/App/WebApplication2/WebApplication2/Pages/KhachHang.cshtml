@@ -1,0 +1,45 @@
+﻿@page
+@model WebApplication2.Pages.KhachHangModel
+@{
+}
+<h2>Thông tin khách hàng</h2>
+<section>
+    <p><span class="label">Tên:</span> @Model.Name</p>
+    <p><span class="label">Email:</span> @Model.Email</p>
+    <p><span class="label">Số điện thoại:</span> @Model.Phone</p>
+    <a style="display:inline-block; padding:10px 20px; background-color:red; color:black; font-weight:bold; border-radius:6px:" href="/Logout">Đăng xuất</a>
+    @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <a style="display:inline-block; padding:10px 20px; background-color:#ffc107; color:black; font-weight:bold; border-radius:6px; text-decoration:none;" href="/DSKhachHang">
+           Danh Sách Khách Hàng (Admin)
+        </a>
+        <a style="display:inline-block; padding:10px 20px; background-color:#ffc107; color:black; font-weight:bold; border-radius:6px; text-decoration:none;" href="/DSSan">
+            Danh Sách Sân (Admin)
+        </a>
+    }
+
+</section>
+
+
+
+<h3>Danh sách sân đã đặt:</h3>
+<section class="client">
+@if (Model.Bookings.Count == 0)
+{
+    <p>Bạn chưa đặt sân nào.</p>
+}
+else
+{
+    foreach (var b in Model.Bookings)
+    {
+        <div class="bill">
+            <h4 style="margin-bottom: 10px;">🧾 Hóa đơn đặt sân</h4>
+                <p><strong>Tên sân:</strong> @b.PlaceName</p>
+                <p><strong>Loại sân:</strong> @b.Type</p>
+                <p><strong>Giá:</strong> @b.Price.ToString("N0") đ</p>
+                <p><strong>Thời gian:</strong> @b.TimeSlot</p>
+                <p><strong>Ngày đặt:</strong> @b.BookingDate.ToString("dd/MM/yyyy")</p>
+        </div>
+    }
+}
+</section>

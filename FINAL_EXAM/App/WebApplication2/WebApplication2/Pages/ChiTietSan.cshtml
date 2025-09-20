@@ -1,0 +1,91 @@
+﻿@page
+@model ChiTietSanModel
+@{
+}
+
+
+<!--Bang thoi gian-->
+<h2>Chi Tiết Sân</h2>
+<div class="schedule-wrapper">
+    <table class="schedule">
+        <thead>
+            <tr>
+                <th>Sân</th>
+                @foreach (var slot in Model.TimeSlots)
+                {
+                    <th>@slot.SlotLabel</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var field in Model.FieldList)
+            {
+                <tr>
+                    <td>@field.Name</td>
+                    @foreach (var status in field.SlotStatuses)
+                    {
+                        <td class="@(status == "Đã đặt" ? "booked" : "available")">@status</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!--Main Section-->
+<div class="container_1">
+    <!-- Left: Chi tiết sân -->
+    <div class="left-panel">
+        <h2>Chi tiết sân</h2>
+        <div style="display: flex; gap: 10px;">
+            <div class="main-img"><img src="@Model.SelectedPlace.Img_URl" alt="img"></div>
+            <div class="thumbnail-list">
+            </div>
+        </div>
+
+        <div class="field-info">
+            <p><strong>Tên sân:</strong> @Model.SelectedPlace.Name</p>
+            <p><strong>Loại sân:</strong> @Model.SelectedPlace.Type</p>
+            <p><strong>Giá:</strong> @Model.SelectedPlace.Price.ToString("N0") đ/giờ</p>
+        </div>
+
+
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+            <!--Lựa chọn thời gian-->
+            <form method="post">
+                <input type="hidden" name="PlaceId" value="@Model.PlaceId" />
+                <div>
+                    <label>Ngày:</label><br />
+                    <input type="date" name="BookingDate" required />
+                </div>
+
+                <div>
+                    <label>Khung giờ:</label><br />
+                    <select name="TimeSlotId" required>
+                        @for (int i = 0; i < Model.TimeSlots.Count; i++)
+                        {
+                            var slot = Model.TimeSlots[i];
+                            <option value="@slot.TimeSlotId">@slot.SlotLabel</option>
+                        }
+                    </select>
+                </div>
+
+                <button type="submit">Đặt sân</button>
+            </form>
+            @if (!string.IsNullOrEmpty(Model.errorMessage))
+            {
+                <div class="error">@Model.errorMessage</div>
+            }
+        </div>
+    </div>
+    <!--Center-->
+    <div class="divider"></div>
+    <!-- Right: Vị trí sân -->
+    <div class="right-panel">
+        <h3>Vị trí sân</h3>
+        <div class="map"><img src="@Model.SelectedPlace.Img_URl_map" alt="img"></div>
+	</div>
+   
+
+	
+</div>
+

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication2.styles.css" asp-append-version="true" />
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                Datsan247
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/Index">🏠Trang chủ</a></li>
+                    <li><a href="/DanhSachSan">☰Danh sách sân</a></li>
+                    <li><a href="/GioiThieu">Giới thiệu</a></li>
+                    <li><a href="#lienhe">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <a href="/TaiKhoan">👤Tài Khoản</a>
+            </div>
+        </div>
+    </header>
+
+    <!--Main Section-->
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-item" id="gioithieu">
+            <h2>GIỚI THIỆU</h2>
+            <p>Đặt sân 247 cung cấp các tiện ích thông minh giúp cho bạn tìm sân bãi và đặt sân một cách hiệu quả nhất.</p>
+        </div>
+        <div class="testimonials-item" id="thongtin">
+            <h2>THÔNG TIN</h2>
+            <p>Công ty Cổ phần Booking 247</p>
+            <p>Email: contact@datsan247.vn</p>
+            <p>Địa chỉ: 123 Đường ABC, TP. XYZ</p>
+        </div>
+        <div class="testimonials-item" id="lienhe">
+            <h2>LIÊN HỆ</h2>
+            <p>SĐT: 0123 456 789</p>
+            <p>Facebook: <a href="#">fb.com/datsan247</a></p>
+        </div>
+    </section>
+</body>
+</html>
