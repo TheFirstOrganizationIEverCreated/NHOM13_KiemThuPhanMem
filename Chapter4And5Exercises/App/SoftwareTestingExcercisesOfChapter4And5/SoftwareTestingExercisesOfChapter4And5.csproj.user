@@ -74,5 +74,8 @@
     <Compile Update="Exercise22.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="QuadraticEquationSolver.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

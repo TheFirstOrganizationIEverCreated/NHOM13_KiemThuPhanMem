@@ -120,6 +120,9 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             case Exercise.Exercise28:
                 (new Exercise28()).ShowDialog();
                 break;
+            case Exercise.QuadraticEquationSolver:
+                (new QuadraticEquationSolver()).ShowDialog();
+                break;
             default:
                 MessageBox.Show("Hiện chưa có bài này hoặc đã có lỗi.");
                 break;

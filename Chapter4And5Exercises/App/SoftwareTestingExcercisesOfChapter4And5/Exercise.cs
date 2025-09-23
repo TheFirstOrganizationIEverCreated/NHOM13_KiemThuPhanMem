@@ -30,6 +30,7 @@ public enum Exercise
     Exercise25,
     Exercise26,
     Exercise27,
-    Exercise28
+    Exercise28,
+    QuadraticEquationSolver
 #pragma warning restore CA1712 // Do not prefix enum values with type name
 }
