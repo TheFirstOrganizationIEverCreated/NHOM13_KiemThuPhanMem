@@ -36,8 +36,67 @@ public partial class QuadraticEquationSolver : Window, INotifyPropertyChanged
         UpdateNotification(string.Empty);
     }
 
+    public string? UserName { private get; set; }
+
+    private string? Password => passwordBox.Password;
+
     public QuadraticEquationSolver ()
     {
         InitializeComponent();
+    }
+
+    private void ClickedExitButtonEventHandler (object sender, RoutedEventArgs e)
+    {
+        Close();
+    }
+
+    private void ClickedLoginButtonEventHandler (object sender, RoutedEventArgs e)
+    {
+        if (!ValidateLoginInputs())
+        {
+            return;
+        }
+
+        ConfirmQuadraticEquationConstants();
+    }
+    private bool ValidateLoginInputs ()
+    {
+        if (!(UserNameIsValid() && PasswordIsValid()))
+        {
+            NotifyNotAllLoginInputsAreValid();
+            return false;
+        }
+
+        return true;
+    }
+    private void ConfirmQuadraticEquationConstants ()
+    {
+        loginSection.Visibility = Visibility.Collapsed;
+        quadraticArgumentsSection.Visibility = Visibility.Visible;
+    }
+
+    private void NotifyNotAllLoginInputsAreValid ()
+    {
+        UpdateNotification("User name hoặc Password không hợp lệ");
+    }
+    private bool UserNameIsValid ()
+    {
+        // mang tính tượng trưng, khỏi cần dùng database
+        return UserName == "username";
+    }
+    private bool PasswordIsValid ()
+    {
+        // mang tính tượng trưng, khỏi cần dùng database
+        return Password == "password";
+    }
+
+    private void UserNameTextBoxTextChangedEventHandler (object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        ClearNotification();
+    }
+
+    private void PasswordBoxPasswordChangedEventHandler (object sender, RoutedEventArgs e)
+    {
+        ClearNotification();
     }
 }
