@@ -8,3 +8,4 @@
 **/.vs
 **/*.txt.bak
 **/*.lnk
+**/Debug/
