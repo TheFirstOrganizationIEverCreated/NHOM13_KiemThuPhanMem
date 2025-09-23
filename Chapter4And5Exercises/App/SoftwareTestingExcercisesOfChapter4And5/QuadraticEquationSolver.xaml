@@ -65,19 +65,21 @@
                 Text="NHẬP DỮ LIỆU ĐẦU VÀO" />
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="a(*) " />
+                <TextBlock Text="a(*) " Width="30" />
                 <TextBox Text="{Binding AString, Mode=OneWayToSource}" Width="100" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="b(*) " />
+                <TextBlock Text="b(*) " Width="30" />
                 <TextBox Text="{Binding BString, Mode=OneWayToSource}" Width="100" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="c(*) " />
+                <TextBlock Text="c(*) " Width="30" />
                 <TextBox Text="{Binding CString, Mode=OneWayToSource}" Width="100" />
             </StackPanel>
+
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Notification, Mode=OneWay}" />
 
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button
