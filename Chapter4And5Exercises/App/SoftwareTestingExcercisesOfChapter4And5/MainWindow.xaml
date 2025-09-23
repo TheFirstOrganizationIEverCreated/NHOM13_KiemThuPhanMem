@@ -12,20 +12,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
-        <ComboBox
-            HorizontalAlignment="Center"
-            ItemsSource="{Binding Exercises, Mode=OneWay}"
-            Margin="0,195,0,0"
-            SelectedItem="{Binding SelectedExercise, Mode=TwoWay}"
-            VerticalAlignment="Top"
-            Width="120" />
-        <Button
-            Click="ClickedRunButton"
-            Content="Run"
-            Height="30"
-            HorizontalAlignment="Center"
-            Margin="0,240,0,0"
-            VerticalAlignment="Top"
-            Width="50" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox
+                HorizontalAlignment="Center"
+                ItemsSource="{Binding Exercises, Mode=OneWay}"
+                SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" />
+
+            <Button
+                VerticalAlignment="Top"
+                Margin="0,20,0,0"
+                Click="ClickedRunButton"
+                Content="Run"
+                Height="30"
+                Width="50" />
+        </StackPanel>
     </Grid>
 </Window>
