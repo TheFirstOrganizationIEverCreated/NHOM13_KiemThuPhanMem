@@ -6,7 +6,7 @@
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-            //Thêm dịch vụ xác thực Cookie
+            // dịch vụ xác thực Cookie
             builder.Services.AddAuthentication("MyCookieAuth")
             .AddCookie("MyCookieAuth", options =>
             {

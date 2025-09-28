@@ -50,7 +50,7 @@ namespace WebApplication2.Pages
         private void HandleRegister()
         {
             //Đăng Ký
-            clientInfo.Name = Request.Form["name"]; //thông tin từ form user đã submit 
+            clientInfo.Name = Request.Form["name"]; //thông tin từ form user đã đưa
             clientInfo.Email = Request.Form["email"];
             clientInfo.Phone = Request.Form["phone"];
             clientInfo.Password = Request.Form["RegisterPassword"];
@@ -151,7 +151,7 @@ namespace WebApplication2.Pages
                                 await HttpContext.SignInAsync("MyCookieAuth", principal);
 
                                 // Chuyển hướng sang trang chính hoặc dashboard
-                                Response.Redirect("/Index");
+                                Response.Redirect("/TaiKhoan");
                             }
                             else
                             {

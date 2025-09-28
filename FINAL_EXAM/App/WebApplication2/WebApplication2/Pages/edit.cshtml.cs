@@ -8,7 +8,7 @@ namespace WebApplication2.Pages
     [Authorize(Roles = "admin")]
     public class editModel : PageModel
     {
-        public ClientInfo clientInfo = new ClientInfo(); //model chứa thông tin cho 1 client
+        public ClientInfo clientInfo = new ClientInfo();
         public string errorMessage = ""; //hiển thị thông báo lỗi khi người dùng ko nhập thông tin
         public void OnGet()
         {
@@ -22,7 +22,7 @@ namespace WebApplication2.Pages
                     string sql = "Select * from Customers where customer_id = @id";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        command.Parameters.AddWithValue("id", id); //đưa id của client truyền qua url
+                        command.Parameters.AddWithValue("id", id);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())

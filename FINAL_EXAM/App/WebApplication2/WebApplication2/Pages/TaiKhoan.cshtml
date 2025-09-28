@@ -4,10 +4,10 @@
 }
 <!-- Main Section -->
 <div class="auth-container">
-    <div class="tabs">
-        <div id="login-tab" class="active">Đăng nhập</div>
-        <div id="register-tab">Đăng ký</div>
-    </div>
+     <div class="tabs"> 
+         <div id="login-tab" class="active">Đăng nhập</div> 
+         <div id="register-tab">Đăng ký</div> 
+     </div> 
 
     <!-- Form Đăng Nhập -->
     <form id="login-form" class="form active" method="post">
@@ -15,20 +15,20 @@
         <input type="email" name="LoginEmail" placeholder="Email" value="@Model.clientInfo.Email" required />
         <input type="password" name="LoginPassword" placeholder="Mật khẩu" value="@Model.clientInfo.Password" required />
         <button type="submit">Đăng nhập</button>
-        <div class="link">Chưa có tài khoản? <a href="#" id="switch-to-register">Đăng ký ngay</a></div>
+         <div class="link">Chưa có tài khoản? <a href="#" id="switch-to-register">Đăng ký ngay</a></div> 
     </form>
 
-    <!-- Form Đăng Ký -->
-    <form id="register-form" class="form" method="post">
-        <input type="hidden" name="formAction" value="register" />
-        <input type="text" name="name" value="@Model.clientInfo.Name" placeholder="Họ và Tên" required  />
-        <input type="email" name="email" value="@Model.clientInfo.Email" placeholder="Email" required   />
-		<input type="text" name="phone" value="@Model.clientInfo.Phone" placeholder="SĐT" required />
-        <input type="password" name="RegisterPassword" value="@Model.clientInfo.Password" placeholder="Mật khẩu" required  />
-        <input type="password" name="RegisterConfirm" placeholder="Xác nhận mật khẩu" required />
-        <button type="submit">Đăng ký</button>
-        <div class="link">Đã có tài khoản? <a href="#" id="switch-to-login">Đăng nhập</a></div>
-    </form>
+    <!-- Form Đăng Ký --> 
+     <form id="register-form" class="form" method="post"> 
+         <input type="hidden" name="formAction" value="register" /> 
+         <input type="text" name="name" value="@Model.clientInfo.Name" placeholder="Họ và Tên" required  /> 
+         <input type="email" name="email" value="@Model.clientInfo.Email" placeholder="Email" required   /> 
+		 <input type="text" name="phone" value="@Model.clientInfo.Phone" placeholder="SĐT" required /> 
+         <input type="password" name="RegisterPassword" value="@Model.clientInfo.Password" placeholder="Mật khẩu" required  /> 
+         <input type="password" name="RegisterConfirm" placeholder="Xác nhận mật khẩu" required /> 
+         <button type="submit">Đăng ký</button> 
+         <div class="link">Đã có tài khoản? <a href="#" id="switch-to-login">Đăng nhập</a></div> 
+     </form>
 </div>
 <script>
     const loginTab = document.getElementById('login-tab');
