@@ -57,7 +57,8 @@ namespace WebApplication2.Pages
                     INNER JOIN Places p ON b.place_id = p.place_id
                     INNER JOIN TimeSlots t ON b.timeslot_id = t.timeslot_id
                     WHERE b.customer_id = @CustomerId
-                    ORDER BY b.booking_date DESC";
+                    ORDER BY b.booking_date DESC
+                ";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {

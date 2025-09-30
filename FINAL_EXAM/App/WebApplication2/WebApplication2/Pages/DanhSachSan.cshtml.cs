@@ -58,7 +58,7 @@ namespace WebApplication2.Pages
             {
                 connection.Open();
 
-                // Lấy danh sách sân (Places)
+                // 1. Lấy danh sách sân (Places)
                 string sqlPlaces = "SELECT * FROM Places";
                 using (SqlCommand command = new SqlCommand(sqlPlaces, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -78,7 +78,7 @@ namespace WebApplication2.Pages
                     }
                 }
 
-                // Lấy danh sách khung giờ (TimeSlots)
+                // 2. Lấy danh sách khung giờ (TimeSlots)
                 string sqlSlots = "SELECT * FROM TimeSlots";
                 using (SqlCommand command = new SqlCommand(sqlSlots, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -102,7 +102,7 @@ namespace WebApplication2.Pages
                         SlotStatuses = place.SlotStatuses
                     });
                 }
-                //  Lấy danh sách đặt sân trong hôm nay (Bookings)
+                // 3. Lấy danh sách đặt sân trong hôm nay (Bookings)
                 string sqlBookings = "SELECT place_id, timeslot_id, booking_date FROM Bookings WHERE booking_date = @today";
                 using (SqlCommand command = new SqlCommand(sqlBookings, connection))
                 {
@@ -122,7 +122,7 @@ namespace WebApplication2.Pages
                 }
             }
 
-            //  Gán trạng thái từng khung giờ cho mỗi sân
+            // 4. Gán trạng thái từng khung giờ cho mỗi sân
             foreach (PlacesInfo place in listPlaces)
             {
                 foreach (TimeSlot slot in TimeSlots)
