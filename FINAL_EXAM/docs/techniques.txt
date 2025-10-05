@@ -1,0 +1,3 @@
+- Kỹ thuật phân vùng tương đương là nhóm các test case có đặc điểm, tính chất, mức độ quan trọng, v.v...
+và chỉ xét 1 trường hợp trong mỗi nhóm, loại bỏ các trường hợp còn lại
+nhằm tối ưu số lượng trường hợp kiểm thử.
